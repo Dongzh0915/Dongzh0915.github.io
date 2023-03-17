@@ -4,23 +4,23 @@
   
     
     <entry>
-      <title>123</title>
-      <link href="/2023/03/10/123/"/>
-      <url>/2023/03/10/123/</url>
+      <title>Linux命令行初识</title>
+      <link href="/2023/03/17/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <url>/2023/03/17/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
       
-        <content type="html"><![CDATA[<h1 id="123"><a href="#123" class="headerlink" title="123"></a>123</h1><p>123</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Cimg%E6%9D%BE%E7%94%B0%E8%AD%A6%E5%AE%98.jpg"></p><p>GITHUB 如何设置token_github token设置_沉梦昂志浮生若梦的博客-CSDN博客](<a href="https://blog.csdn.net/weixin_52678342/article/details/125841379">https://blog.csdn.net/weixin_52678342/article/details/125841379</a>)</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Cimgwechat.jpg"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h1><p>linux系统使用时有别于windows系统，没有完美的图形界面，所以命令行成为了使用linux系统的基础。</p><p>Tips：linux系统在使用时一般使用正斜线（&#x2F;），而不是反斜线（\），linux中反斜线表示转义字符。</p><p>首先是进入控制台使用的快捷键：Ctrl+Alt+t：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230317133117.png"></p><p>进入控制台后我们就可以开始学习命令行了。</p><p>正如window中一样，我们首先要知道怎么打开一个文件夹，在linux中使用的cd命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$cd /home                     进入名为home的目录</span><br></pre></td></tr></table></figure><p>cd命令的参数可以用两种方法表示：一种是使用绝对文件路径，另一种是使用相对文件路径。</p><p>绝对文件路径较为简单，同windows理，在执行上述代码后，~会变成&#x2F;home，这时就处于home的目录下了。若是没有配置好提示符来显示当前shell会话的绝对文件路径，可以使用pwd命令显示出来，如下图。</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230317142148.png"></p><p>相对文件路径是允许用户指定一个基于当前位置的目标文件路径。相对文件路径不以代表根目录的正斜线（&#x2F;）开头，而是以目录名或是一个特殊字符开始。假如位于home目录中，并希望切换到代码子目录，那么可以使用cd命令加上一个相对文件路径：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230317142732.png"></p><p>上图并没有使用正斜线（&#x2F;），而是采用了相对文件路径将大大减少输入内容。</p><p>另有两个特殊字符可用于相对文件路径中</p><p>单点符（.），表示当前目录；</p><p>双点符（..），表示当前目录的父目录。</p><p>双点符在目录层级的移动时非常便利，如下图：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230317143139.png"></p><p>从home目录下的代码文件夹移动到视频文件夹。</p>]]></content>
       
       
       <categories>
           
-          <category> Butterfly </category>
+          <category> 命令行 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> Linux </tag>
             
         </tags>
       
