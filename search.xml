@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>C语言浅学</title>
+      <link href="/2023/03/23/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6/"/>
+      <url>/2023/03/23/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="多个函数"><a href="#多个函数" class="headerlink" title="多个函数"></a>多个函数</h1><p>截至目前，所有的程序都只使用了printf（）函数。接下来我们来演示如何把自己的函数加入程序中。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* two_func.c -- 一个文件中包含两个函数 */</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void butler(void); /* C函数原型 */</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;I will summon the butler function.\n&quot;);</span><br><span class="line">butler();</span><br><span class="line">printf(&quot;Yes. Bring me some tea and writeable DVDs.\n&quot;);</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line">void butler(void) /* 函数定义的开始 */</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;You rang, sir?\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>butler()函数在程序中出现了3次。第1次是函数原型（prototype），告知编译器在程序中要使用该函数；第 2 次以函数调用（function call）的形式出现在 main()中；最后一次出现在函数定义（function definition）中，函数定义即是函数本身的源代码。</p><p>在 main()中调用 butler()很简单，写出函数名和圆括号即可。当butler()执行完毕后，程序会继续执行main()中的下一条语句。</p><h1 id="调试程序"><a href="#调试程序" class="headerlink" title="调试程序"></a>调试程序</h1><p>在我们自己编写程序的过程中，会因为粗心大意犯一些错误，程序的错误通常叫做 bug，找出并修正错误的过程叫做调试（debug）。</p><p>通常来说程序的错误主要集中在三个方面：语法错误，语义错误，程序状态。</p><p>语法错误：C语言的语法错误指的是，把有效的C符号放在错误的地方。</p><p>语义错误：在C语言中，如果遵循了C规则，但是结果不正确，那就是犯了语义错误。</p><p>Tip：编译器无法检测语义错误，因为这类错误并未违反 C语言的规则。</p><p>程序状态：程序状态是在程序的执行过程中，某给定点上所有变量值的集合。它是计算机当前状态的一个快照。</p><h1 id="关键字和保留标识符"><a href="#关键字和保留标识符" class="headerlink" title="关键字和保留标识符"></a>关键字和保留标识符</h1><p>关键字是C语言的词汇。它们对C而言比较特殊，不能用它们作为标识符（如，变量名）。许多关键字用于指定不同的类型，如 int。还有一些关键字（如，if）用于控制程序中语句的执行顺序。如下图：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230323141935.png"></p><p>保留标识符包括那些以下划线字符开头的标识符和标准库函数名，如printf（）。</p><p>对C语言的了解在此篇结束，接下来开始学习C语言中的数据类型。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言回顾</title>
       <link href="/2023/03/18/C%E8%AF%AD%E8%A8%80%E5%9B%9E%E9%A1%BE/"/>
       <url>/2023/03/18/C%E8%AF%AD%E8%A8%80%E5%9B%9E%E9%A1%BE/</url>
