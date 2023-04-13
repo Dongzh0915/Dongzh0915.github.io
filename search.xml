@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux命令行-文件与目录列表2</title>
+      <link href="/2023/04/13/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%952/"/>
+      <url>/2023/04/13/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%952/</url>
+      
+        <content type="html"><![CDATA[<p>接上篇博客，这篇我们开始讲述Linux命令行中关于文件目录的最后一小点内容–目录。</p><h1 id="目录处理"><a href="#目录处理" class="headerlink" title="目录处理"></a>目录处理</h1><p>在Linux之中，有许多的命令对文件和目录都有效，而有些只对目录有效，那么首先我们来说说怎么创建一个新的目录：</p><h2 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h2><p>命令：mkdir  -  make directories</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413100027.png"></p><p>我们可以使用 ls命令来查看，可以注意到新目录列表是以d开头，这表示New_dir1是一个目录而不是一个文件。</p><p>单一的 mkdir命令只能创建一个一个目录，若是我们想要创建多个目录或者子目录，就需要在命令后加入-p的参数。如果我们在创建目录出现错误或者建错地方，我们又应该如何去删除呢</p><h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><p>命令：rmdir   -  remove directories</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413100717.png"></p><p>上图可以看到我在一个目录下又创建了一个目录，我想要删除，延续了rm命令的 -i习惯，但是在 rmdir命令中并没有 -i选项来询问是否要删除目录。</p><p><strong>Tips：在默认的情况下，rmdir命令只能删除空目录，若是目录下含有文件等，rmdir命令是无法执行的。</strong></p><p>虽然rmdir命令只能删除空目录，但是不代表删除目录会有很大的麻烦，我们还可以在非空目录上使用rm命令，使用-r参数使得命令可以向下进入目录，删除其中的文件，删除文件之后并且删除目录。</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413101811.png"></p><p>上图这种方法同样可以向下进入多个子目录，当需要大量删除目录和文件，这一点尤为有效。若是文件达到一定量级这种方法的弊端也随之显现出来，因为我们要确认每一个文件，这时最终的方法就是使用 -r 和 -f 同时使用的rm命令。</p><p><strong>Tip：在使用 rm -rf 命令之前最好先确认操作是否符合预期，务必谨慎使用该指令。</strong></p><h1 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h1><p>Linux中还有几个命令可以查看文件的内容，而不需要调用其他的文本编辑器。</p><h2 id="查看文件类型"><a href="#查看文件类型" class="headerlink" title="查看文件类型"></a>查看文件类型</h2><p>命令：file （option）</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413102933.png"></p><p>这个命令是一个随手可得的便捷工具，它可以探测文件的内部，并决定文件是什么类型。也可以作为我们区分文件与目录的又一种方法，其次该命令还可以在查询符号链接文件的时候，可以告诉我们它究竟链接到了那个文件上。</p><h2 id="查看整个文件"><a href="#查看整个文件" class="headerlink" title="查看整个文件"></a>查看整个文件</h2><p>若是我们手头有一个很大的文本文件，我们会希望看看里面的内容，在Linux中有三个不同的命令能完成这个任务。</p><p>命令1：cat  (option)</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413103904.png"></p><p>cat命令是显示文本文件中所有数据的得力工具，没有什么特别的内容。还有一些和该命令搭配使用的参数：</p><p>参数：-n </p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413104310.png"></p><p>该参数会给所有的内容的行加上行号。（在检查脚本的时候很有用）</p><p>若是只想给有文本的加上行号可以使用 - b 参数。</p><p>若是不想制表符出现，可以使用 -T 参数。</p><p><strong>Tip：对于大型文件来说，cat命令有些繁琐，文件的文本会一晃而过。下面的命令可以解决这个问题。</strong></p><p>命令2：more  （option）</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413105421.png"></p><p>more命令是为了解决cat命令一旦运行，无法控制后面的操作，more命令可以在显示一页数据之后停下来，more命令是分页工具，正如前面提到过的man命令一样，可以通过空格键和回车键逐行浏览文件，浏览完之后按q键退出。</p><p><strong>Tip：不过more命令只支持文本文件最基本的移动，有些高级功能可以使用less命令。</strong></p><p>命令3 ：less  （option）</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413110115.png"></p><p>上图就是通过 less 命令进入一个源代码文件。less命令与more命令基本一样，除此之外还包括很多其他的命令集。</p><h2 id="查看部分文件"><a href="#查看部分文件" class="headerlink" title="查看部分文件"></a>查看部分文件</h2><p>上面的命令都是查看完整文件，但其实有些时候我们只需要查看文件的开头或者结尾就满足需求了，这个时候用cat、more或者less就显得没这么便捷了，好在Linux中有两个专用的命令</p><p>命令1：tail  （option）</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413111736.png"></p><p>该命令正如它的名字，会显示文件内容的最后几行的内容。在系统默认情况下，它会显示文件的末尾10行。</p><p>参数：-n  number</p><p>在-n后面加上想要的行数就可以指定该命令的显示行数了。</p><p>参数：-f</p><p>该参数是tail命令的一个突出特性，该参数允许我们在其他进程使用该文件的时候查看文件的内容，tail命令会保持不断活动的状态，这是实时监测系统日志的良好方法。</p><p>命令2：head filename</p><p>实例：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg20230413112342.png"></p><p>与上同理，该命令会显示文件开头的行内容，默认情况下，会显示前10行的内容。该命令也支持参数 -n 。</p><p><strong>Tip：因为一般来说文件的开头不会轻易改变，head命令并不像tail命令一样支持参数 -f 。</strong></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>关于在文件系统中切换目录以及处理文件和目录的基本知识到这里就结束了。下面就是正式开始脚本编程之前的最后准备–系统管理命令（如何通过命令行探查Linux系统的内部信息）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言浅学-数据类型</title>
       <link href="/2023/03/31/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
       <url>/2023/03/31/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
