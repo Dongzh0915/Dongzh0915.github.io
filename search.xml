@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Linux命令行-系统管理命令</title>
+      <link href="/2023/04/16/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/"/>
+      <url>/2023/04/16/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>故障修复-虚拟机USB口不识别U盘</title>
+      <link href="/2023/04/16/%E6%95%85%E9%9A%9C%E4%BF%AE%E5%A4%8D-%E8%99%9A%E6%8B%9F%E6%9C%BAUSB%E5%8F%A3%E4%B8%8D%E8%AF%86%E5%88%ABU%E7%9B%98/"/>
+      <url>/2023/04/16/%E6%95%85%E9%9A%9C%E4%BF%AE%E5%A4%8D-%E8%99%9A%E6%8B%9F%E6%9C%BAUSB%E5%8F%A3%E4%B8%8D%E8%AF%86%E5%88%ABU%E7%9B%98/</url>
+      
+        <content type="html"><![CDATA[<p>前因：在学习Linux系统管理命令时想尝试一下用 mount 命令将U盘挂载到虚拟机中，然而将U盘插入电脑后，虚拟机并无任何反应，开始百度查找原因，基本可以确定是VMware USB Arbitration Service 服务未开启的问题。</p><p>找到疑似原因，就开始尝试修复，首先win + r 键，输入service.msc，回车进入服务，找到上述的USB服务并开启服务，在这里我们遇到了第一个问题：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161433611.png"></p><p>接着在百度上查找原因，大部分说的是AMD主板这类的问题，尝试过后发现效果并不是很理想，本着除根需除净的原则，还是选择将VM虚拟机卸载重装。</p><p>在尝试过程中有个使用exe文件重装修复的方法，尝试之后会出现以下的问题：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161438609.png"></p><p>这也是博主尝试的最后一种方法，实在修不动，选择重装大法了。（当然重装之后还是使用修复的方法对USB接口服务进行修复）</p><p><strong>Tip：VMx86驱动程序的版本不匹配，基本就是以前安装过的VM虚拟机卸载的不干净导致脚本文件产生冲突。</strong></p><p>重装VM虚拟机的过程中，又出现了一个问题：无法安装服务，请确保您有足够的权限安装系统文件。</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161442321.png"></p><p>这个问题解决详情可见<a href="https://blog.csdn.net/qq_55868479/article/details/124046593">无法安装服务“VMware Authorization Service” ，请确保您有足够的权限安装系统，如何解决？_神偷克星的博客-CSDN博客</a></p><p>最后博主也是用CCleaner清除干净注册表之后成功安装。</p><p><strong>Tip：在清除注册表之后最重要的一点：重启电脑！重启电脑！重启电脑！</strong></p><p>然而在重新安装完成之后，插入U盘仍然没有任何反应，这时候就可以使用上面修复的手段了：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161449782.png"></p><p>点击修复，再次进入服务启用VMware USB Arbitration Service 服务即可：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161451393.png"></p><p>可以看到该服务已经启动成功了。</p><p>此时我们将U盘插入电脑，就会看到以下画面：</p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161452158.png"></p><p>圆满修复。</p><p><strong>在这篇博客完成之前，博主Picgo出现图片上传的网络问题，一开始以为是VPN的故障，查完发现Github的token有时长限制，具体修复如下：</strong></p><p><img src="https://raw.githubusercontent.com/Dongzh0915/Picture/main/E%3A%5Chexo%5Cblog%5Csource%5Cimg202304161455368.png"></p><p>将Expiration的期限改为无限制，重新生成令牌即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统故障 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VM虚拟机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言浅学-字符串的格式化输入输出</title>
       <link href="/2023/04/14/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
       <url>/2023/04/14/C%E8%AF%AD%E8%A8%80%E6%B5%85%E5%AD%A6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</url>
