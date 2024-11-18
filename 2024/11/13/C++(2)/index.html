@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++初学（2） | DongzhのBlog</title><meta name="keywords" content="C++"><meta name="author" content="Dongzh0915"><meta name="copyright" content="Dongzh0915"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++变量类型变量类型其实不用过多阐述，和数据类型相似，变量仅仅是可操作存储区的名称而已，C++还有其他类型的变量，如枚举、引用、数据结构和类等。 枚举类型：enum，用于定义一组命名的整数常量。 变量声明声明是向编译器保证变量是按照给定的类型和名称而存在，声明只有在编译时才有意义，声明和定义是不同的概念，声明可以多次，而变量的定义只有一次；多个文件且只有一个文件定义变量，变量的声明就显得非常有用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++初学（2）">
+<meta property="og:url" content="http://example.com/2024/11/13/C++(2)/index.html">
+<meta property="og:site_name" content="DongzhのBlog">
+<meta property="og:description" content="C++变量类型变量类型其实不用过多阐述，和数据类型相似，变量仅仅是可操作存储区的名称而已，C++还有其他类型的变量，如枚举、引用、数据结构和类等。 枚举类型：enum，用于定义一组命名的整数常量。 变量声明声明是向编译器保证变量是按照给定的类型和名称而存在，声明只有在编译时才有意义，声明和定义是不同的概念，声明可以多次，而变量的定义只有一次；多个文件且只有一个文件定义变量，变量的声明就显得非常有用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2024-11-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-18T06:03:48.258Z">
+<meta property="article:author" content="Dongzh0915">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/%E6%9D%BE%E7%94%B0%E8%AD%A6%E5%AE%98.jpg"><link rel="canonical" href="http://example.com/2024/11/13/C++(2)/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++初学（2）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-18 14:03:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/%E6%9D%BE%E7%94%B0%E8%AD%A6%E5%AE%98.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">DongzhのBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++初学（2）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-12T16:00:00.000Z" title="发表于 2024-11-13 00:00:00">2024-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-18T06:03:48.258Z" title="更新于 2024-11-18 14:03:48">2024-11-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++初学（2）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="C-变量类型"><a href="#C-变量类型" class="headerlink" title="C++变量类型"></a>C++变量类型</h1><p>变量类型其实不用过多阐述，和数据类型相似，变量仅仅是可操作存储区的名称而已，C++还有其他类型的变量，如枚举、引用、数据结构和类等。</p>
+<p>枚举类型：enum，用于定义一组命名的整数常量。</p>
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>声明是向编译器保证变量是按照给定的类型和名称而存在，声明只有在编译时才有意义，声明和定义是不同的概念，声明可以多次，而变量的定义只有一次；多个文件且只有一个文件定义变量，变量的声明就显得非常有用，使用extern关键字在任意一个地方声明一个变量。</p>
+<p>extern 的用法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="type">int</span> i;	<span class="comment">//声明，不是定义</span></span><br><span class="line"><span class="type">int</span> i;	<span class="comment">//声明，也是定义，未初始化</span></span><br><span class="line"><span class="comment">//1.extern告诉编译器变量在其他地方被定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="type">double</span> pi = <span class="number">3.1415926</span>;	<span class="comment">//定义，声明加上初始化被当作定义，即使加了extern</span></span><br><span class="line"><span class="comment">//2.带初始化的声明必定是定义，当extern在函数外部时，才可以被初始化</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="type">double</span> <span class="title">max</span><span class="params">(<span class="type">double</span> a, <span class="type">double</span> b)</span></span>;	<span class="comment">//声明</span></span><br><span class="line"><span class="comment">//3.函数的定义和声明就比较简单，&#123;&#125;是定义，否则就是声明</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//4.除非有extern，不然都是定义</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>这两个概念和C中是一样的，只需要注意右值不能出现在赋值号的左边。</p>
+<h1 id="C-变量作用域"><a href="#C-变量作用域" class="headerlink" title="C++变量作用域"></a>C++变量作用域</h1><p>定义变量的三个地方：</p>
+<p>1.函数和代码块的内部，局部变量</p>
+<p>2.函数参数的定义中声明的变量，形式参数</p>
+<p>3.函数外部声明的变量，全局变量</p>
+<p>作用域一般分为以下几种：</p>
+<p>局部作用域：变量只能在函数内部访问，函数调用时创建，执行结束销毁。</p>
+<p>全局作用域：变量可以被程序中任何函数访问，程序开始时创建，程序结束销毁。</p>
+<p>块作用域：例如循环，只能在代码块中被访问，循环中创建，循环结束而销毁。</p>
+<p>类作用域：在类中内部声明的变量，可以被内部所有的成员函数访问，与类生命周期一致。</p>
+<p>Tip：若是内部作用域的变量和外部作用域的变量重名，内部变量会将外部变量覆盖。</p>
+<h1 id="C-常量"><a href="#C-常量" class="headerlink" title="C++常量"></a>C++常量</h1><p>常量是固定值，在程序执行期间不会改变，就像是常规的变量，只是值不能变，常量可以是任何的数据类型。</p>
+<p>整数常量：可以是十进制、八进制和十六进制，整数常量也可以带后缀，U表示无符号整数，L表示长整数。</p>
+<p>浮点常量：由整数部分、小数点和小数部分或指数部分组成，主要是小数形式和指数形式表示。</p>
+<p>布尔常量：属于关键字，只有true 和 false，不应该看作0和1。</p>
+<p>字符常量：常常是在单引号中，还有就是一些带反斜杠的转义字符。</p>
+<p>字符串常量：通常在双引号””之中，包含字符常量的字符、转义序列和通用字符。</p>
+<h2 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h2><p>C++和C中并没有很大的区别</p>
+<p>1.#define预处理器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LENGTH 10   </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WIDTH  5</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NEWLINE <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="type">int</span> area;  </span><br><span class="line">   </span><br><span class="line">   area = LENGTH * WIDTH;</span><br><span class="line">   cout &lt;&lt; area;</span><br><span class="line">   cout &lt;&lt; NEWLINE;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.const关键字</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">const</span> <span class="type">int</span>  LENGTH = <span class="number">10</span>;</span><br><span class="line">   <span class="type">const</span> <span class="type">int</span>  WIDTH  = <span class="number">5</span>;</span><br><span class="line">   <span class="type">const</span> <span class="type">char</span> NEWLINE = <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">   <span class="type">int</span> area;  </span><br><span class="line">   </span><br><span class="line">   area = LENGTH * WIDTH;</span><br><span class="line">   cout &lt;&lt; area;</span><br><span class="line">   cout &lt;&lt; NEWLINE;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Tip：常量定义一般使用大写字母。</p>
+<h1 id="C-修饰符类型"><a href="#C-修饰符类型" class="headerlink" title="C++修饰符类型"></a>C++修饰符类型</h1><p>修饰符前面已经阐述过了，其实主要的差异就是集中在signed和unsigned两个修饰符。</p>
+<h2 id="C-类型限定符"><a href="#C-类型限定符" class="headerlink" title="C++类型限定符"></a>C++类型限定符</h2><p>类型限定符提供了变量的额外信息，用于定义时改变默认行为的关键字。</p>
+<p>const：只读变量，值不能被修改。</p>
+<p>volatile：该变量的值可能会被程序外的因素改变，硬件和其他线程等。</p>
+<p>restrict：该关键字修饰的指针是唯一访问它所指向对象的方式。</p>
+<p>mutable：该关键字用于修饰类的成员变量，该变量可以被修改，即使对象是const</p>
+<p>static：用于定义静态变量，说明只能用于当前文件或者当前函数。</p>
+<p>register：定义寄存器变量，说明其需要被频繁使用，存在寄存器中，提高效率。</p>
+<p>实例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> num1 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get_value</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value_; <span class="comment">// const 关键字表示该成员函数不会修改对象中的数据成员</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set_value</span><span class="params">(<span class="type">int</span> value)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        value_ = value; <span class="comment">// mutable 关键字允许在 const 成员函数中修改成员变量</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">mutable</span> <span class="type">int</span> value_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">example_function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> count = <span class="number">0</span>; <span class="comment">// static 关键字使变量 count 存储在程序生命周期内都存在</span></span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">example_function</span><span class="params">(<span class="keyword">register</span> <span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// register 关键字建议编译器将变量 num 存储在寄存器中</span></span><br><span class="line">    <span class="comment">// 以提高程序执行速度</span></span><br><span class="line">    <span class="comment">// 但是实际上是否会存储在寄存器中由编译器决定</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在C++中的static除了和C一样的用法之外，在类的定义中还有一些重要的概念，在类中，声明为static的类成员分为两类，静态成员变量，静态成员函数；<font color='red'>其中静态成员变量一定要在类外进行初始化。</font></p>
+<p>1.静态成员为所有该类的对象所共有，不属于某个具体的个例</p>
+<p>2.静态成员变量要在类外定义，定义时不添加static</p>
+<p>3.静态成员函数没有隐藏的this指针，不能访问任何非静态成员</p>
+<p>4.访问静态成员变量的特殊方式</p>
+<p>5.静态成员和普通的一样，具体三种访问级别，可以具有返回值</p>
+<p>static详解：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45031801/article/details/134215425">https://blog.csdn.net/weixin_45031801/article/details/134215425</a></p>
+<h1 id="C-存储类"><a href="#C-存储类" class="headerlink" title="C++存储类"></a>C++存储类</h1><p>这个概念其实我并不清楚为什么需要单独拎出来说，因为其实还是这几个关键字，定义了程序中变量和函数的范围和生命周期，存储类说明符一般放在修饰类型的前面，按照现有的资料来说，存储类说明符只是关键字的子集。</p>
+<p>存储类：</p>
+<p>auto、register、static、extern、mutable、thread_local等</p>
+<p>其中最后一个是关键字中没有的，thread_local主要用于具有线程局部存储期的变量，每个线程都有自己的独立副本，线程局部变量和线程的生命周期一致。</p>
+<p>auto：声明变量时根据初始化表达式自动推断该变量的类型；声明函数时函数返回值的占位符。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> -&gt; <span class="type">int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b; <span class="comment">// 返回类型是 int</span></span><br><span class="line">&#125;	<span class="comment">//这种语法被称为尾置返回类型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="built_in">add</span>(<span class="number">2</span>, <span class="number">3</span>) &lt;&lt; std::endl; <span class="comment">// 输出 5</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回值是值类型</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">byValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回值是引用类型</span></span><br><span class="line"><span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">byReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x); <span class="comment">// 加括号返回引用</span></span><br><span class="line">&#125;	<span class="comment">//decltype(auto)是另一个形式的占位符</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">byValue</span>() = <span class="number">20</span>;        <span class="comment">// 无效，byValue 返回值类型</span></span><br><span class="line">    <span class="built_in">byReference</span>() = <span class="number">20</span>;    <span class="comment">// 有效，byReference 返回引用</span></span><br><span class="line">    std::cout &lt;&lt; x &lt;&lt; std::endl; <span class="comment">// 输出 20</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>register：同关键字中一样的用法，不再赘述</p>
+<p>static：同关键字</p>
+<p>extern：同关键字</p>
+<p>mutable：同关键字，适用于需要在const环境中修改状态的特定情况，不是普遍的设计模式。</p>
+<p>thread_local：用于多线程环境管理线程特有的变量，每个线程彼此独立。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">thread_local</span> <span class="type">int</span> threadSpecificVar = <span class="number">0</span>; <span class="comment">// 每个线程都有自己的 threadSpecificVar</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">threadFunction</span><span class="params">(<span class="type">int</span> id)</span> </span>&#123;</span><br><span class="line">    threadSpecificVar = id; <span class="comment">// 设置线程特有的变量</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Thread &quot;</span> &lt;&lt; id &lt;&lt; <span class="string">&quot;: threadSpecificVar = &quot;</span> &lt;&lt; threadSpecificVar &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::thread <span class="title">t1</span><span class="params">(threadFunction, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function">std::thread <span class="title">t2</span><span class="params">(threadFunction, <span class="number">2</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line">    t1.<span class="built_in">join</span>();</span><br><span class="line">    t2.<span class="built_in">join</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Tip：由于每个线程都有独立的副本，该类型的变量访问速度相较全局和静态稍慢；且存储类型是静态存储持续时间，在程序运行期间会一直存在。</p>
+<h1 id="C-函数"><a href="#C-函数" class="headerlink" title="C++函数"></a>C++函数</h1><p>主函数main，其余的常规的函数和C一致，定义函数、函数声明、调用函数等。</p>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p>函数需要使用参数，则必须声明接受参数值的变量，这些被称为形参；形参和函数内部的变量一样，进入函数时创建，退出时销毁，调用函数时，有三种向函数传递参数的方式：</p>
+<p>传值调用：该方法把参数的实际值赋值给函数的形式参数，基于此修改函数内的参数对实际的参数没有影响。</p>
+<p>指针调用：该方法是将参数的地址赋值给形式参数，在函数内修改形式参数会影响到实际参数。</p>
+<p>引用调用：该方法是将参数的引用赋值给形式参数，在函数内修改亦会影响实际参数。</p>
+<p>参数列表中的参数我们可以指定其默认值，调用时若是留空，则会使用这个默认值。</p>
+<h2 id="Lambda函数与表达式"><a href="#Lambda函数与表达式" class="headerlink" title="Lambda函数与表达式"></a>Lambda函数与表达式</h2><p>C++11提供了对匿名函数的支持，也称为Lambda表达式，其把函数看作对象，可以将它们赋值给变量和作为参数进行传递，还可以像函数一样对其求值。</p>
+<p>表达式具体形式：[capture] (parameters)-&gt;return-type{body}</p>
+<p>capture：外部捕获的值</p>
+<p>parameters：表达式的参数</p>
+<p>return-type：返回值的类型</p>
+<p>body：表达式的本体</p>
+<p>在Lambda表达式中，可以访问当前作用域的变量，这是C++的闭包行为，C++的闭包行为有传值和传引用的区别，可以使用前面的[capture]来指定：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[]      <span class="comment">// 沒有定义任何变量。使用未定义变量会引发错误。</span></span><br><span class="line">[x, &amp;y] <span class="comment">// x以传值方式传入（默认），y以引用方式传入。</span></span><br><span class="line">[&amp;]     <span class="comment">// 任何被使用到的外部变量都隐式地以引用方式加以引用。</span></span><br><span class="line">[=]     <span class="comment">// 任何被使用到的外部变量都隐式地以传值方式加以引用。</span></span><br><span class="line">[&amp;, x]  <span class="comment">// x显式地以传值方式加以引用。其余变量以引用方式加以引用。</span></span><br><span class="line">[=, &amp;z] <span class="comment">// z显式地以引用方式加以引用。其余变量以传值方式加以引用。</span></span><br></pre></td></tr></table></figure>
+
+<p>闭包是一种捕获外部作用域变量的函数，结合了函数体和变量，允许函数在离开作用域之后仍然可以访问这些变量，捕获的变量和函数体共同组成了对象（闭包），持有变量的方式：值捕获和引用捕获。</p>
+<p>捕获变量的生命周期和闭包对象一致，捕获的值在闭包期间有效。<font color='red'>引用捕获的变量</font>需要保证原变量在闭包的生命周期内有效，否则会出现未定义行为。</p>
+<p>对于值捕获的变量，使用mutable可以使得它在闭包内部可修改，且不影响外部变量。闭包可以将外部变量封装成持久状态，在多次调用中保持状态。</p>
+<p>另外还有一点，对于[&#x3D;]和[&amp;]的形式，lambda表达式可以直接使用this指针，对于[]的形式，要使用this指针，必须显式传入。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">this</span>]() &#123; <span class="keyword">this</span>-&gt;<span class="built_in">someFunc</span>(); &#125;();</span><br></pre></td></tr></table></figure>
+
+<p>捕获this，才可以使用当前对象的成员变量和成员函数，当然捕获this有一些注意事项，和前面类似，主要是生命周期的问题可能会导致悬空引用，从而引发未定义的行为。其次，若捕获的this是常量指针，那么是无法对对象成员进行修改的，若是需要修改，则需要使用[this]或者[&amp;]来进行捕获。</p>
+<p>剩下的部分基本就是C语言中相同的内容。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Dongzh0915</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/11/13/C++(2)/">http://example.com/2024/11/13/C++(2)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">DongzhのBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/18/C++(3)/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++初学（3）</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/07/C++(1)/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++初学（1）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/18/C++(3)/" title="C++初学（3）"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-18</div><div class="title">C++初学（3）</div></div></a></div><div><a href="/2024/11/07/C++(1)/" title="C++初学（1）"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-07</div><div class="title">C++初学（1）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/%E6%9D%BE%E7%94%B0%E8%AD%A6%E5%AE%98.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dongzh0915</div><div class="author-info__description">每天进步一点的准工程师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Dongzh0915"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Dongzh0915" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">省身 求实 慎言</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">C++变量类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">左值和右值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">C++变量作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%B8%B8%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">C++常量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">定义常量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">C++修饰符类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%B1%BB%E5%9E%8B%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-number">4.1.</span> <span class="toc-text">C++类型限定符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%AD%98%E5%82%A8%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">C++存储类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">C++函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda%E5%87%BD%E6%95%B0%E4%B8%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.2.</span> <span class="toc-text">Lambda函数与表达式</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/C++(3)/" title="C++初学（3）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++初学（3）"/></a><div class="content"><a class="title" href="/2024/11/18/C++(3)/" title="C++初学（3）">C++初学（3）</a><time datetime="2024-11-17T16:00:00.000Z" title="发表于 2024-11-18 00:00:00">2024-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/13/C++(2)/" title="C++初学（2）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++初学（2）"/></a><div class="content"><a class="title" href="/2024/11/13/C++(2)/" title="C++初学（2）">C++初学（2）</a><time datetime="2024-11-12T16:00:00.000Z" title="发表于 2024-11-13 00:00:00">2024-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/C++(1)/" title="C++初学（1）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++初学（1）"/></a><div class="content"><a class="title" href="/2024/11/07/C++(1)/" title="C++初学（1）">C++初学（1）</a><time datetime="2024-11-06T16:00:00.000Z" title="发表于 2024-11-07 00:00:00">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/30/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-Linux/" title="嵌入式开发-Linux"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式开发-Linux"/></a><div class="content"><a class="title" href="/2023/11/30/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-Linux/" title="嵌入式开发-Linux">嵌入式开发-Linux</a><time datetime="2023-11-29T16:00:00.000Z" title="发表于 2023-11-30 00:00:00">2023-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/28/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-%E7%94%B5%E8%B7%AF%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/" title="嵌入式开发-电路知识补充"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="嵌入式开发-电路知识补充"/></a><div class="content"><a class="title" href="/2023/11/28/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-%E7%94%B5%E8%B7%AF%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/" title="嵌入式开发-电路知识补充">嵌入式开发-电路知识补充</a><time datetime="2023-11-27T16:00:00.000Z" title="发表于 2023-11-28 00:00:00">2023-11-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Dongzh0915</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="2889677087" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-lrcType="-1"> </div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
